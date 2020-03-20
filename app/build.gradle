@@ -83,9 +83,15 @@ dependencies {
     //rv
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
-    //debug使用库
-    debugImplementation project(path: ':httphelplib')
-    developImplementation project(path: ':httphelplib')
+//    //debug使用库
+//    debugImplementation project(path: ':httphelplib')
+//    developImplementation project(path: ':httphelplib')
+//    //
+//    releaseImplementation project(path: ':httphelplib_no_op')
+
     //
-    releaseImplementation project(path: ':httphelplib_no_op')
+
+    debugImplementation  'com.github.Ablexq.HttpHelper:httphelplib:1.0.0'
+    developImplementation  'com.github.Ablexq.HttpHelper:httphelplib:1.0.0'
+    releaseImplementation 'com.github.Ablexq.HttpHelper:httphelplib_no_op:1.0.0'
 }

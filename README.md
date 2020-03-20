@@ -6,6 +6,25 @@
 
 # httphelper
 
+root的app.gradle中配置：
+
+```groovy
+allprojects {
+    repositories {
+        //...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+app.gradle中配置：
+
+```groovy
+dependencies {
+	implementation 'com.github.Ablexq:HttpHelper:1.0'
+}
+
+```
+3. 代码中配置：
 ```
 //添加域名配置拦截器，可直接在手机上进行切换域名
 okHttpClient = new OkHttpClient.Builder()

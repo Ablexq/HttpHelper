@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 //#############    upload to JitPack   ######################
 apply plugin: 'com.github.dcendents.android-maven'
 
-group='com.github.xq'
+group='com.github.xq.No-Op'
 //##########################################################
 
 android {

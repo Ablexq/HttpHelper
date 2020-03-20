@@ -1,0 +1,91 @@
+apply plugin: 'com.android.application'
+
+
+//获取properties
+def keystorePropertiesFile = rootProject.file("sign.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+    //添加
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+        debug {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    def BASE_URL_DEBUG = "\"http://www.baidu.com/\""
+    def BASE_URL_DEVELOP = "\"https://www.jd.com/\""
+    def BASE_URL_RELEASE = "\"https://wanandroid.com/\""
+
+    defaultConfig {
+        applicationId "com.example.httphelper"
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField('String', 'BASE_URL', BASE_URL_DEBUG)
+            signingConfig signingConfigs.debug
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField('String', 'BASE_URL', BASE_URL_RELEASE)
+            signingConfig signingConfigs.release
+        }
+
+        develop {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField('String', 'BASE_URL', BASE_URL_DEVELOP)
+            signingConfig signingConfigs.release
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //okhttp
+    implementation 'com.squareup.okhttp3:okhttp:3.7.0'
+    //design
+    implementation 'com.google.android.material:material:1.1.0'
+    //v4
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    //rv
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    //debug使用库
+    debugImplementation project(path: ':httphelplib')
+    developImplementation project(path: ':httphelplib')
+    //
+    releaseImplementation project(path: ':httphelplib_no_op')
+}

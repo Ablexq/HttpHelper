@@ -49,7 +49,7 @@ okHttpClient = new OkHttpClient.Builder()
 
 - 问题一：build type需要每个module都添加
 
-![](./pics/buildtype.png)
+![](https://github.com/Ablexq/HttpHelper/blob/master/pics/buildtype.png)
 
 新增的build type 每个module都需要添加
 
@@ -66,7 +66,7 @@ Task 'installRelease' not found in root project 'HttpHelper'. Some candidates ar
 
 解决：
 
-![](./pics/gradle.png)
+![](https://github.com/Ablexq/HttpHelper/blob/master/pics/gradle.png)
 
 只有配置了签名，release和其他build type才会有右侧的执行按钮
 

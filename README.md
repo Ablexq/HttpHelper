@@ -1,5 +1,8 @@
 
 
+# 最新版本
+
+[![](https://jitpack.io/v/Ablexq/HttpHelper.svg)](https://jitpack.io/#Ablexq/HttpHelper)
 
 # 感谢
 

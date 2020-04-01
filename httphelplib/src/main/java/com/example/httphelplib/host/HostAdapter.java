@@ -41,8 +41,6 @@ public class HostAdapter extends RecyclerView.Adapter<HostAdapter.VH> {
         list.clear();
         list.addAll(data);
         notifyDataSetChanged();
-
-        Toast.makeText(context, "数据刷新完成", Toast.LENGTH_SHORT).show();
     }
 
     @NonNull

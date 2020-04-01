@@ -2,9 +2,11 @@
     package="com.example.httphelplib">
 
 
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
 
     <application>
@@ -50,6 +52,9 @@
             </intent-filter>
         </activity-alias>
 
+        <activity
+            android:name=".host.ScanActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

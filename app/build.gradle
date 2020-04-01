@@ -31,7 +31,7 @@ android {
     def BASE_URL_RELEASE = "\"https://wanandroid.com/\""
 
     defaultConfig {
-        applicationId "com.example.httphelper.com"
+        applicationId "com.example.httphelper"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 1

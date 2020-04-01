@@ -11,21 +11,37 @@
 
     <application>
 
+        <!--
+
+        在Android项目中的AndroidManifest中provider的authorities
+        相当于一个系统级的全局变量它的值必须唯一，如果有两个应用的authorities相同会导致安装失败。
+
+         -->
         <provider
             android:name=".log.internal.utils.CaptureContext"
-            android:authorities="com.example.httphelplib" />
+            android:authorities="com.example.httphelplib.fileprovider.${applicationId}"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/http_helper_file_paths" />
+        </provider>
+
 
         <activity
             android:name=".log.internal.ui.CaptureInfoActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|locale"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
+            android:taskAffinity="com.squareup.leakcanary.${applicationId}"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity-alias
             android:name="CaptureInfoActivity"
             android:label="抓包入口"
-            android:targetActivity=".log.internal.ui.CaptureInfoActivity">
+            android:targetActivity=".log.internal.ui.CaptureInfoActivity"
+            android:taskAffinity="com.squareup.leakcanary.${applicationId}">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -40,12 +56,14 @@
             android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|locale"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
+            android:taskAffinity="com.squareup.leakcanary2.${applicationId}"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity-alias
             android:name="HostActivity"
             android:label="配置域名入口"
-            android:targetActivity=".host.HostActivity">
+            android:targetActivity=".host.HostActivity"
+            android:taskAffinity="com.squareup.leakcanary2.${applicationId}">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

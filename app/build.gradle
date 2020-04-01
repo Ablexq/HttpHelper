@@ -31,7 +31,7 @@ android {
     def BASE_URL_RELEASE = "\"https://wanandroid.com/\""
 
     defaultConfig {
-        applicationId "com.example.httphelper"
+        applicationId "com.example.httphelper.com"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
@@ -91,7 +91,7 @@ dependencies {
 
     //
 
-//    debugImplementation  'com.github.Ablexq.HttpHelper:httphelplib:1.0.0'
-//    developImplementation  'com.github.Ablexq.HttpHelper:httphelplib:1.0.0'
-//    releaseImplementation 'com.github.Ablexq.HttpHelper:httphelplib_no_op:1.0.0'
+//    debugImplementation  'com.github.Ablexq.HttpHelper:httphelplib:1.0.1'
+//    developImplementation  'com.github.Ablexq.HttpHelper:httphelplib:1.0.1'
+//    releaseImplementation 'com.github.Ablexq.HttpHelper:httphelplib_no_op:1.0.1'
 }

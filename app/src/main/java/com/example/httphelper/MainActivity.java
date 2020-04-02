@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.httphelplib.host.HostInterceptor;
@@ -35,6 +36,17 @@ public class MainActivity extends AppCompatActivity {
 
         TextView textView = (TextView) this.findViewById(R.id.tv);
         textView.setText(BuildConfig.BASE_URL);
+
+        final HostUtils hostUtils = new HostUtils.Builder()
+                .context(this)
+                .build();
+        Button button = (Button) this.findViewById(R.id.btn1);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hostUtils.continuousClick();
+            }
+        });
     }
 
     @Override

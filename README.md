@@ -8,6 +8,7 @@
 
 [ DingProg / NetworkCaptureSelf ](https://github.com/DingProg/NetworkCaptureSelf)
 
+[leakcanary](https://github.com/square/leakcanary)
 
 # httphelper
 
@@ -116,9 +117,27 @@ developImplementation  'com.github.Ablexq.HttpHelper:httphelplib:1.0.0'
 releaseImplementation 'com.github.Ablexq.HttpHelper:httphelplib_no_op:1.0.0'
 ```
 
+# 点击才弹出
 
+如果不想运行app就有hostActivity的icon,可以通过点击某一个view一定次数弹出，模仿开发者模式的弹出
 
+- 定义HostUtils
 
+- 点击多次
+
+```java
+
+final HostUtils hostUtils = new HostUtils.Builder()
+            .context(this)
+            .build();
+    Button button = (Button) this.findViewById(R.id.btn1);
+    button.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            hostUtils.continuousClick();
+        }
+    });
+```
 
 
 
